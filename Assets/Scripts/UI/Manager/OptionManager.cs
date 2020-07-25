@@ -7,6 +7,7 @@ public class OptionManager : MonoBehaviour
 {
     public static GameObject optionCanvas;
     public static OptionManager Instance;
+    public static bool isOption;
 
     private void Awake()
     {
@@ -22,23 +23,15 @@ public class OptionManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().ToString() == "MainScene")
-        {
-            TurnOnOptionMenu();
-        }
-    }
-
     public static void TurnOnOptionMenu()
     {
-        Time.timeScale = 0f;
+        isOption = true;
         optionCanvas.SetActive(true);
     }
 
     public static void TurnOffOptionMenu()
     {
-        Time.timeScale = GameManager.timeScale;
+        isOption = false;
         optionCanvas.SetActive(false);
     }
 }

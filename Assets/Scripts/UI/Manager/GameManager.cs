@@ -35,7 +35,10 @@ public class GameManager : MonoBehaviour
         currentSaveNum = -1;
         targetSaveNum = -1;
 
-        coin = 3;
+        currentLife = -1;
+        maxLife = -1;
+
+        coin = 0;
 
         barSpeed = 4f;
         ballSpeed = 300f;
