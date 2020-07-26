@@ -8,7 +8,7 @@ public class ResumeBtn : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && PauseBtn.isPause && !OptionManager.isOption)
+        if (Input.GetKeyDown(KeyCode.Escape) && PauseBtn.isPause && !OptionManager.isOption && !AlertManager.isAlert)
         {
             ResumeGame();
         }

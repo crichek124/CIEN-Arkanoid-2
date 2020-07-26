@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    // 시작 값 조정
     private void Awake()
     {
         if (Instance != null)
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         currentLife = -1;
         maxLife = -1;
 
-        coin = 0;
+        coin = 50;
 
         barSpeed = 4f;
         ballSpeed = 300f;

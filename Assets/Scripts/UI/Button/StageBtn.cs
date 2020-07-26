@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StageBtn : MonoBehaviour
 {
+    public GameObject stageCanvas;
+
     public void MoveToMainScene(int stageNum)
     {
         // GameManager.cs 에 아예 선언하여 더 깔끔하게 할 수 있음, 임시로 이렇게 해둠
@@ -53,6 +55,16 @@ public class StageBtn : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene("MainScene");
+        StartCoroutine(WaitForLoading("MainScene"));
+    }
+
+    public IEnumerator WaitForLoading(string SceneName)
+    {
+        Time.timeScale = GameManager.timeScale;
+
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(SceneName);
+        yield return new WaitUntil(() => loadingOperation.isDone);
+
+        Destroy(stageCanvas);
     }
 }

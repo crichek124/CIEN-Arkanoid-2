@@ -23,6 +23,14 @@ public class OptionManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && OptionManager.isOption && SceneManager.GetActiveScene().name != "MainScene")
+        {
+            TurnOffOptionMenu();
+        }
+    }
+
     public static void TurnOnOptionMenu()
     {
         isOption = true;

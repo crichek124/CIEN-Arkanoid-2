@@ -14,7 +14,7 @@ public class PauseBtn : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPause && !OptionManager.isOption)
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPause && !OptionManager.isOption && !AlertManager.isAlert)
         {
             PauseGame();
         }

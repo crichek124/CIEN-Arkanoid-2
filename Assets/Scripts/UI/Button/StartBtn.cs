@@ -5,14 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class StartBtn : MonoBehaviour
 {
+    public GameObject mainCanvas;
+    private AudioSource sound;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(mainCanvas);
+        sound = gameObject.GetComponent<AudioSource>();
+    }
+
     public void MoveToMainScene()
     {
-        OptionManager.optionCanvas.SetActive(false);
+        StartCoroutine(WaitForSound());
+    }
 
-        // 임시
-        GameManager.barSpeed = 4f;
-        GameManager.ballSpeed = 300f;
-
+    public IEnumerator WaitForSound()
+    {
         SceneManager.LoadScene("StageScene");
+        yield return new WaitUntil(() => sound.isPlaying == false);
+        Destroy(mainCanvas);
     }
 }

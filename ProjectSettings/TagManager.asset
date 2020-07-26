@@ -11,6 +11,7 @@ TagManager:
   - AlienIce
   - ItemIce
   - Brick
+  - Wall
   layers:
   - Default
   - TransparentFX
